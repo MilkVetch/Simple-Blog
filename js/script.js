@@ -5,10 +5,10 @@ angular.module('blog',['ngAnimate', 'ui.router'])
 		$stateProvider
 			.state('home', {
 				url:'/',
-				templateUrl: '/static/home.html'
+				templateUrl: 'static/home.html'
 			})
 			.state('about', {
 				url: '/about',
-				templateUrl:'/static/about.html'
+				templateUrl:'static/about.html'
 			});
 	});
