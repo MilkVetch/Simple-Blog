@@ -2,12 +2,10 @@
 	<div class="logo">
 		<a href="#/"><ng-include src="'img/logo.svg'"></ng-include></a>
 	</div>
-	<ul class="menu">
-		<li><a href="#/note">隨筆</a></li>
-		<li><a href="#/front-end">前端</a></li>
-		<li><a href="#/design">設計</a></li>
-		<li><a href="#/music">音樂</a></li>
-		<li><a href="#/novel">小說</a></li>
-		<li><a href="#/about">關於</a></li>
+	<ul class="menu" ng-class="{'active': !menuList.toggle}">
+		<li ng-repeat="item in menuList.list">
+			<a ui-sref-active="active" ui-sref="{{item.url}}">{{item.page}}</a>
+		</li>
 	</ul>
+	<div class="menu-btn" ng-click="menuList.toggle = !menuList.toggle"><span ng-class="{'active': !menuList.toggle}"></span></div>
 </nav>

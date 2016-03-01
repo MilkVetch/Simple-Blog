@@ -403,6 +403,10 @@ ul {
 }
 
 nav.header-nav {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
   background: #2c3e50;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -410,6 +414,7 @@ nav.header-nav {
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  z-index: 99999;
 }
 
 nav.header-nav .logo #logo {
@@ -439,7 +444,92 @@ nav.header-nav ul.menu li a:hover {
   background-color: #34495e;
 }
 
-nav.header-nav ul.menu li a #logo {
-  fill: #ecf0f1;
+nav.header-nav ul.menu li a.active {
+  background-color: #c0392b;
+}
+
+@media screen and (max-width: 768px) {
+  nav.header-nav ul.menu {
+    position: fixed;
+    left: 0;
+    top: 50px;
+    width: 100%;
+    background-color: #2c3e50;
+    height: 0px;
+    overflow: hidden;
+    z-index: -1;
+    transition: all 0.5s ease;
+  }
+  nav.header-nav ul.menu li {
+    display: block;
+    text-align: center;
+  }
+}
+
+nav.header-nav ul.menu.active {
+  height: 300px;
+}
+
+nav.header-nav .menu-btn {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  position: relative;
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  nav.header-nav .menu-btn {
+    display: block;
+  }
+}
+
+nav.header-nav .menu-btn span {
+  width: 24px;
+  height: 2px;
+  background-color: #ecf0f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+nav.header-nav .menu-btn span:before, nav.header-nav .menu-btn span:after {
+  transition: all 0.5s ease;
+  position: absolute;
+  content: '';
+  background-color: #ecf0f1;
+  width: 24px;
+  height: 2px;
   display: block;
+}
+
+nav.header-nav .menu-btn span:before {
+  top: 8px;
+}
+
+nav.header-nav .menu-btn span:after {
+  top: -8px;
+}
+
+nav.header-nav .menu-btn span.active {
+  background-color: transparent;
+}
+
+nav.header-nav .menu-btn span.active:before, nav.header-nav .menu-btn span.active:after {
+  top: 0;
+}
+
+nav.header-nav .menu-btn span.active:before {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+nav.header-nav .menu-btn span.active:after {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }

@@ -1,0 +1,80 @@
+nav.header-nav
+	position: fixed
+	width: 100%
+	left: 0
+	top: 0
+	background: $menu-theme
+	display: flex
+	justify-content: space-between
+	z-index: 99999
+
+	.logo
+		#logo
+			fill: $menu-text
+			display: block
+
+	ul.menu
+		list-style: none
+		height: 50px
+
+		li
+			display: inline-block
+			a
+				display: block
+				padding: 0 1em
+				text-decoration: none
+				height: 50px
+				line-height: 50px
+				color: $menu-text
+				&:hover
+					background-color: $menu-hover
+			a.active
+				background-color: $menu-active
+
+		+bp(max, 768px)
+			position: fixed
+			left: 0
+			top: 50px
+			width: 100%
+			background-color: $menu-theme
+			height: 0px
+			overflow: hidden
+			z-index: -1
+			transition: all 0.5s ease
+			li
+				display: block
+				text-align: center
+		&.active
+			height: 300px
+
+
+	.menu-btn
+		+size(50px)
+		cursor: pointer
+		position: relative
+		display: none
+		+bp(max, 768px)
+			display: block
+		span
+			+size(24px, 2px)
+			background-color: $menu-text
+			+centerer
+			&:before, &:after
+				transition: all 0.5s ease
+				position: absolute
+				content: ''
+				background-color: $menu-text
+				+size(24px, 2px)
+				display: block
+			&:before
+				top: 8px
+			&:after
+				top: -8px
+		span.active
+			background-color: transparent
+			&:before, &:after
+				top: 0
+			&:before
+				transform: rotate(45deg)
+			&:after
+				transform: rotate(-45deg)
