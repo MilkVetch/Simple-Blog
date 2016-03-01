@@ -404,8 +404,8 @@ ul {
 
 nav.header-nav {
   position: fixed;
-  width: 100%;
   left: 0;
+  right: 0;
   top: 0;
   background: #2c3e50;
   display: -webkit-flex;
@@ -415,11 +415,26 @@ nav.header-nav {
       -ms-flex-pack: justify;
           justify-content: space-between;
   z-index: 99999;
+  padding: 0 1em 0 2em;
 }
 
-nav.header-nav .logo #logo {
-  fill: #ecf0f1;
+@media screen and (max-width: 768px) {
+  nav.header-nav {
+    padding: 0 1em;
+  }
+}
+
+nav.header-nav .logo a {
   display: block;
+  line-height: 50px;
+  color: #ecf0f1;
+  text-decoration: none;
+  letter-spacing: 0.3em;
+  font-size: 1.2em;
+}
+
+nav.header-nav .logo a:hover {
+  color: white;
 }
 
 nav.header-nav ul.menu {
@@ -442,6 +457,7 @@ nav.header-nav ul.menu li a {
 
 nav.header-nav ul.menu li a:hover {
   background-color: #34495e;
+  color: white;
 }
 
 nav.header-nav ul.menu li a.active {
@@ -464,14 +480,20 @@ nav.header-nav ul.menu li a.active {
     display: block;
     text-align: center;
   }
+  nav.header-nav ul.menu li:first-child {
+    border-top: 2px solid #34495e;
+  }
+  nav.header-nav ul.menu li a {
+    letter-spacing: 0.5em;
+  }
 }
 
 nav.header-nav ul.menu.active {
-  height: 300px;
+  height: 302px;
 }
 
 nav.header-nav .menu-btn {
-  width: 50px;
+  width: 24px;
   height: 50px;
   cursor: pointer;
   position: relative;

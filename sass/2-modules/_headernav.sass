@@ -1,17 +1,26 @@
 nav.header-nav
 	position: fixed
-	width: 100%
 	left: 0
+	right: 0
 	top: 0
 	background: $menu-theme
 	display: flex
 	justify-content: space-between
 	z-index: 99999
+	padding: 0 1em 0 2em
+	+bp(max, 768px)
+		padding: 0 1em
 
 	.logo
-		#logo
-			fill: $menu-text
+		a
 			display: block
+			line-height: 50px
+			color: $menu-text
+			text-decoration: none
+			letter-spacing: 0.3em
+			font-size: 1.2em
+			&:hover
+				color: white
 
 	ul.menu
 		list-style: none
@@ -28,6 +37,7 @@ nav.header-nav
 				color: $menu-text
 				&:hover
 					background-color: $menu-hover
+					color: white
 			a.active
 				background-color: $menu-active
 
@@ -44,12 +54,15 @@ nav.header-nav
 			li
 				display: block
 				text-align: center
+				&:first-child
+					border-top: 2px solid $menu-hover
+				a
+					letter-spacing: 0.5em
 		&.active
-			height: 300px
-
+			height: 302px
 
 	.menu-btn
-		+size(50px)
+		+size(24px, 50px)
 		cursor: pointer
 		position: relative
 		display: none
