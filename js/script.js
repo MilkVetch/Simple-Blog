@@ -79,5 +79,12 @@ angular.module('blog',['ngAnimate', 'ui.router'])
 			{page:'關於', url:'about'},
 		];
 		menuList.toggle = true;
+		window.onresize = function(){
+			if (window.innerWidth > 768) {
+				angular.element(document.getElementById('menu')).scope().menuList.toggle = true;
+				angular.element(document.getElementById('menu')).scope().$digest();
+			}
+		}
+
 	});
 

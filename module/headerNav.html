@@ -1,4 +1,4 @@
-<nav class="header-nav">
+<nav class="header-nav" id="menu">
 	<div class="logo">
 		<a href="#/"><!-- <ng-include src="'img/logo.svg'"></ng-include> -->芪聞異事</a>
 	</div>
@@ -9,3 +9,7 @@
 	</ul>
 	<div class="menu-btn" ng-click="menuList.toggle = !menuList.toggle"><span ng-class="{'active': !menuList.toggle}"></span></div>
 </nav>
+
+<div class="banner">
+	<h1>{{item.page}}</h1>
+</div>
