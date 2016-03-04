@@ -85,6 +85,5 @@ angular.module('blog',['ngAnimate', 'ui.router'])
 				angular.element(document.getElementById('menu')).scope().$digest();
 			}
 		}
-
 	});
 
